@@ -121,7 +121,7 @@ def _cookies_from_headers(headers):
     except ImportError:
         from cookies import Cookies
 
-        resp_cookies = Cookies.from_request(_ensure_str(headers["set-cookie"]))
+        resp_cookies = Cookies.from_response(_ensure_str(headers["set-cookie"]))
         cookies_dict = {
             v.name: quote(_ensure_str(v.value)) for _, v in resp_cookies.items()
         }
